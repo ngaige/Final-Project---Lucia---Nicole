@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated AI Mad Libs Game</title>
+</head>
+<body>
+    <h1>Story Creator</h1>
+    <h3> Welcome to our Mad libs AI generated game! Please fill the spaces in blank to create a fun and unique story. Thank you for playing with us!</h3>
+    
+    <form method="post"> 
+
+        <label>Name:</label><br
+        ><input type="text" name="name" required><br><br>
+
+        <label>Noun:</label><br
+        ><input type="text" name="noun" required><br><br>
+
+        <label>Place:</label><br
+        ><input type="text" name="place" required><br><br>
+
+        <label>Adjective:</label><br
+        ><input type="text" name="adjective" required><br><br>
+
+        <label>Animal:</label><br
+        ><input type="text" name="animal" required><br><br>
+
+        <label>Verb:</label><br
+        ><input type="text" name="verb" required><br><br>
+
+        <button type="submit"> Generate Story</button>
+
+    </form>
+
+    <hr>
+    {% if final_story %}
+        <h2>Your Generated Story:</h2>
+        <p>{{ final_story }}</p>
+    {% endif %}
+</body>
+</html>
