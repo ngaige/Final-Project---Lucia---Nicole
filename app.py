@@ -32,8 +32,11 @@ def index():
             final_story = story_with_golden_word(user_inputs)
         else:
             final_story = create_story_for_user(user_inputs)
+        print(final_story)
 
-    return render_template("index.html", story=final_story)
+        return render_template("story.html", final_story=final_story)
+    else:
+        return render_template("index.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
