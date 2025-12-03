@@ -21,7 +21,8 @@ def create_story_for_user(user_input):
         )
 
     word_list = "\n".join([f"{key}: {value}" for key, value in user_input.items()])
-    prompt = f"""Create a funny and simple mad libs style story for children using the following words provided by the user:
+    style = user_input.get("style", "funny")
+    prompt = f"""Create a {style} and simple mad libs style story for children using the following words provided by the user:
 
     User words provided:
     {word_list}
