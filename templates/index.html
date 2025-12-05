@@ -9,7 +9,8 @@
   <h1>Create Your Own Story ✨</h1>
   <p>Fill in the blanks and choose a story style.</p>
 
-  <form action="/" method="POST">
+  <!-- NOTE: action now points to /story -->
+  <form action="/story" method="POST">
 
     <p>Your name *  
     <input type="text" name="name" required></p>
@@ -35,7 +36,6 @@
     <p>Golden word (optional)  
     <input type="text" name="golden_word"></p>
 
-    <!-- DROPDOWN -->
     <p>
       Story style *
       <select name="story_option" required>
@@ -50,11 +50,6 @@
     <button type="submit">Generate Story ✨</button>
 
   </form>
-
-  {% if story %}
-    <h2>Your Story 📝</h2>
-    <p>{{ story }}</p>
-  {% endif %}
 
 </body>
 </html>
