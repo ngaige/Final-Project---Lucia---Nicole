@@ -1,55 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Final Project · Flask</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="utf-8">
+  <title>Create Your Story ✨</title>
 </head>
-
 <body>
 
-<!-- Floating animated emojis -->
-<div class="float-emoji" style="top:30px; left:40px;">✨</div>
-<div class="float-emoji" style="top:90px; right:60px; animation-delay:0.6s;">🌸</div>
-<div class="float-emoji" style="top:150px; left:80%; animation-delay:1.2s;">💫</div>
+  <h1>Create Your Own Story ✨</h1>
+  <p>Fill in the blanks and choose a story style.</p>
 
-<div class="container">
-    <div class="card">
+  <form action="/" method="POST">
 
-        <header>
-            <h1 class="title">Create Your Own Story ✨</h1>
-            <p class="subtitle">Fill in the blanks or let us surprise you with a randomly generated story.</p>
-            <div class="tag">Interactive · Randomized · Fun 🌈</div>
-        </header>
+    <p>Your name *  
+    <input type="text" name="name" required></p>
 
-        {% if error_message %}
-        <div class="alert">{{ error_message }}</div>
-        {% endif %}
+    <p>Favorite noun *  
+    <input type="text" name="noun" required></p>
 
-        <form method="POST">
-            <h3 class="section">Story Inputs 🦋</h3>
+    <p>Place *  
+    <input type="text" name="place" required></p>
 
-            <label>Your name *</label>
-            <input type="text" name="name" required value="{{ request.form.get('name','') }}">
+    <p>Adjective *  
+    <input type="text" name="adjective" required></p>
 
-            <label>Favorite noun *</label>
-            <input type="text" name="noun" required value="{{ request.form.get('noun','') }}">
+    <p>Verb (present) *  
+    <input type="text" name="verb" required></p>
 
-            <label>Place *</label>
-            <input type="text" name="place" required value="{{ request.form.get('place','') }}">
+    <p>Animal *  
+    <input type="text" name="animal" required></p>
 
-            <label>Adjective *</label>
-            <input type="text" name="adjective" required value="{{ request.form.get('adjective','') }}">
+    <p>Verb (past tense) *  
+    <input type="text" name="verb_past" required></p>
 
-            <label>Animal *</label>
-            <input type="text" name="animal" required value="{{ request.form.get('animal','') }}">
+    <p>Golden word (optional)  
+    <input type="text" name="golden_word"></p>
 
-            <label>Verb (past tense) *</label>
-            <input type="text" name="verb" required value="{{ request.form.get('verb','') }}">
+    <!-- DROPDOWN -->
+    <p>
+      Story style *
+      <select name="story_option" required>
+        <option value="" disabled selected>Select a style</option>
+        <option value="adventure">Adventure</option>
+        <option value="mystery">Mystery</option>
+        <option value="fairytale">Fairytale</option>
+        <option value="influence">Influence 🌟</option>
+      </select>
+    </p>
 
-            <label>Golden word (optional)</label>
-            <input type="text" name="golden_word" value="{{ request.form.get('golden_word','') }}">
+    <button type="submit">Generate Story ✨</button>
 
-            <div class="btn-row">
-                <button type="submit" class="btn-main">Generate Story ✨</button>
-                <button type
+  </form>
+
+  {% if story %}
+    <h2>Your Story 📝</h2>
+    <p>{{ story }}</p>
+  {% endif %}
+
+</body>
+</html>

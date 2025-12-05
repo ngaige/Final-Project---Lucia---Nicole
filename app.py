@@ -1,76 +1,71 @@
 from flask import Flask, render_template, request
-from story_inputs import create_story_for_user, winner_story, story_with_golden_word
-
-import random
 
 app = Flask(__name__)
 
-
 @app.route("/", methods=["GET", "POST"])
 def index():
-    final_story = None
-    error_message = None
-    prefill = {}
+    story = None
 
     if request.method == "POST":
-        # If user clicked the "Surprise me" button
-        if request.form.get("random_story") == "1":
-            names = ["Lucia", "Nicole", "Alex", "Sam", "Jordan"]
-            nouns = ["notebook", "ring", "ticket", "camera", "coffee cup"]
-            places = ["Paris", "New York", "Rome", "Tokyo", "Boston"]
-            adjectives = ["mysterious", "sparkling", "chaotic", "quiet", "lucky"]
-            animals = ["cat", "tiger", "owl", "dolphin", "fox"]
-            verbs = ["danced", "vanished", "whispered", "appeared", "glowed"]
-            golden_words = ["serendipity", "destiny", "chaos", "fortune", "magic"]
+        name = request.form.get("name")
+        noun = request.form.get("noun")
+        place = request.form.get("place")
+        adjective = request.form.get("adjective")
+        verb = request.form.get("verb")
+        animal = request.form.get("animal")
+        verb_past = request.form.get("verb_past")
+        golden_word = request.form.get("golden_word", "")
+        story_option = request.form.get("story_option")
 
-            user_inputs = {
-                "name": random.choice(names),
-                "noun": random.choice(nouns),
-                "place": random.choice(places),
-                "adjective": random.choice(adjectives),
-                "animal": random.choice(animals),
-                "verb": random.choice(verbs),
-                "golden_word": random.choice(golden_words),
-            }
+        # -----------------------
+        # STORY OPTIONS
+        # -----------------------
 
-            final_story = story_with_golden_word(user_inputs)
-            # We don't prefill the form for surprise stories
-            return render_template(
-                "index.html",
-                final_story=final_story,
-                error_message=error_message,
-                prefill={},
+        if story_option == "adventure":
+            story = (
+                f"One {adjective} day at {place}, {name} decided to {verb} like a brave {animal}. "
+                f"Everyone watched in awe as {name} {verb_past} across the scene, "
+                f"proving that even an ordinary {noun} can turn into an extraordinary adventure. "
+                f"{golden_word.capitalize()+'!' if golden_word else ''}"
             )
 
-        # Otherwise, use the values the user typed
-        fields = ["name", "noun", "place", "adjective", "animal", "verb", "golden_word"]
-        user_inputs = {f: request.form.get(f, "").strip() for f in fields}
-        prefill = user_inputs.copy()
+        elif story_option == "mystery":
+            story = (
+                f"Late at night at {place}, {name} noticed a mysterious {noun} glowing in the corner. "
+                f"The {animal} statue seemed to move every time {name} would {verb}. "
+                f"When {name} finally {verb_past}, the secret was revealed: "
+                f"this mystery had been a test of courage all along. "
+                f"{golden_word.capitalize()+'...' if golden_word else ''}"
+            )
 
-        required_values = [
-            user_inputs["name"],
-            user_inputs["noun"],
-            user_inputs["place"],
-            user_inputs["adjective"],
-            user_inputs["animal"],
-            user_inputs["verb"],
-        ]
+        elif story_option == "fairytale":
+            story = (
+                f"Once upon a time in {place}, there lived {name}, a {adjective} dreamer "
+                f"who carried a tiny {noun} everywhere. With their trusty {animal} companion, "
+                f"{name} would {verb} each day until one afternoon they unexpectedly {verb_past}. "
+                f"The kingdom whispered forever after: {golden_word or 'magic'}."
+            )
 
-        if any(not v for v in required_values):
-            error_message = "Please fill in all required fields before generating your story."
+        elif story_option == "influence":
+            story = (
+                f"{name} arrived at {place} holding a {adjective} {noun} and an unshakeable presence. "
+                f"While others tried to {verb}, {name} naturally stood out — "
+                f"the kind of confidence even a {animal} would admire. "
+                f"By the time {name} {verb_past}, the entire room felt transformed, "
+                f"as if influence itself had walked in. "
+                f"{golden_word.capitalize() if golden_word else 'Influence'}."
+            )
+
         else:
-            if winner_story(user_inputs):
-                final_story = story_with_golden_word(user_inputs)
-            else:
-                final_story = create_story_for_user(user_inputs)
+            story = (
+                f"{name} went to {place} with a {adjective} {noun}. "
+                f"They decided to {verb} with a {animal}, and later they {verb_past}. "
+                f"{golden_word.capitalize() if golden_word else ''}"
+            )
 
-    return render_template(
-        "index.html",
-        final_story=final_story,
-        error_message=error_message,
-        prefill=prefill,
-    )
+    return render_template("index.html", story=story)
 
 
 if __name__ == "__main__":
     app.run(debug=True)
+
