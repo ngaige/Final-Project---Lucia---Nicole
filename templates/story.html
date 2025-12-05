@@ -3,16 +3,107 @@
 <head>
   <meta charset="utf-8">
   <title>Your Story 📝</title>
+    <style>
+      body {
+          margin: 0;
+          padding: 0;
+          font-family: "Arial", sans-serif;
+          /* CHANGE BACKGROUND COLOR HERE */
+          background: linear-gradient(135deg, #cfe9ff, #e0f4ff); 
+          animation: bgMove 10s infinite alternate ease-in-out;
+      }
+
+      @keyframes bgMove {
+          0% { background-position: left; }
+          100% { background-position: right; }
+      }
+
+      /* Main content container */
+      .container {
+          background: white;
+          width: 85%;
+          max-width: 900px;
+          margin: 40px auto;
+          padding: 30px;
+          border-radius: 18px;
+          box-shadow: 0px 0px 20px rgba(160, 210, 255, 0.5);
+          text-align: center;
+      }
+
+      h1 {
+          font-size: 2.3rem;
+          color: #3b7dd8;
+          margin-bottom: 20px;
+          font-weight: bold;
+      }
+
+      /* Story box styling */
+      .story-box {
+          background: #eef6ff;
+          border-left: 6px solid #82b4ff;
+          padding: 20px;
+          border-radius: 12px;
+          font-size: 1.15rem;
+          line-height: 1.6rem;
+          text-align: left;
+          margin-bottom: 30px;
+          white-space: pre-wrap;
+      }
+
+      /* Button */
+      .btn {
+          display: inline-block;
+          padding: 12px 25px;
+          background-color: #4d9eff;
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+          border-radius: 10px;
+          transition: 0.3s;
+          font-size: 1.1rem;
+      }
+
+      .btn:hover {
+          background-color: #1a7dff;
+          transform: scale(1.1);
+          box-shadow: 0 0 15px rgba(95, 165, 255, 0.6);
+      }
+
+      /* Floating emoji styling */
+      .emoji {
+          position: fixed;
+          font-size: 2rem;
+          opacity: 0.7;
+          animation: float 4s infinite ease-in-out alternate;
+      }
+
+      @keyframes float {
+          0% { transform: translateY(0px); }
+          100% { transform: translateY(-20px); }
+      }
+
+      .e1 { top: 20px; left: 20px; }
+      .e2 { top: 20px; right: 30px; animation-delay: 0.7s; }
+      .e3 { bottom: 20px; left: 30px; animation-delay: 1.4s; }
+      .e4 { bottom: 20px; right: 25px; animation-delay: 2.1s; }
+
+  </style>
 </head>
 <body>
+    <!-- Floating emojis -->
+    <div class="emoji e1">✨</div>
+    <div class="emoji e2">🦋</div>
+    <div class="emoji e3">🌈</div>
+    <div class="emoji e4">💫</div>
 
-  <h1>Your Story 📝</h1>
+    <div class="container">
+        <h1>Your Story 📝</h1>
 
-  <p>{{ story }}</p>
+        <div class="story-box">
+            {{ story }}
+        </div>
 
-  <p>
-    <a href="/">➤ Create another story</a>
-  </p>
-
+        <a class="btn" href="/start">➤ Create Another Story</a>
+    </div>
 </body>
 </html>

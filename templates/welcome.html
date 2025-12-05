@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create Your Story ✨</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Story Magic ✨</title>
 
-<style>
+    <style>
           body {
             margin: 0;
             padding: 0;
@@ -68,7 +68,7 @@
         /* Button styling */
         button {
             padding: 10px 20px;
-            background-color: #001f3f;
+            background-color: #2d39df;
             color: white;
             border: none;
             border-radius: 10px;
@@ -107,55 +107,24 @@
             line-height: 1.5rem;
         }
 
-</style>
+    </style>
 </head>
 <body>
-  <div class="container">
+        <!-- Animated floating emojis -->
+    <div class="emoji e1">🌸</div>
+    <div class="emoji e2">🦋</div>
+    <div class="emoji e3">✨</div>
+    <div class="emoji e4">🌈</div>
 
-    <h1>Create Your Own Story ✨</h1>
-    <p>Fill in the blanks and choose a story style.</p>
+    <div class="container">
+        <h1>Welcome to Story Magic ✨</h1>
+        <p>Create hilarious, magical, or adventurous stories with the help of AI!</p>
+        <p>Get ready to dive into creativity. 🎨✨</p>
 
-  <!-- NOTE: action now points to /story -->
-  <form action="/story" method="POST">
-
-    <p>Your name *  
-    <input type="text" name="name" required></p>
-
-    <p>Favorite noun *  
-    <input type="text" name="noun" required></p>
-
-    <p>Place *  
-    <input type="text" name="place" required></p>
-
-    <p>Adjective *  
-    <input type="text" name="adjective" required></p>
-
-    <p>Verb (present) *  
-    <input type="text" name="verb" required></p>
-
-    <p>Animal *  
-    <input type="text" name="animal" required></p>
-
-    <p>Verb (past tense) *  
-    <input type="text" name="verb_past" required></p>
-
-    <p>Golden word (optional)  
-    <input type="text" name="golden_word"></p>
-
-    <p>
-      Story style *
-      <select name="story_option" required>
-        <option value="" disabled selected>Select a style</option>
-        <option value="adventure">Adventure</option>
-        <option value="mystery">Mystery</option>
-        <option value="fairytale">Fairytale</option>
-        <option value="silly">Silly</option>
-      </select>
-    </p>
-
-    <button type="submit">Generate Story ✨</button>
-
-  </form>
-
+        <form action="/start">
+            <button class="start-btn">Start Creating Your Story 🌟</button>
+        </form>
+    </div>
+    
 </body>
 </html>
