@@ -1,19 +1,23 @@
 /* 🌈 Animated pastel background */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: system-ui, sans-serif;
+    margin: 0;              /*removes the default browser. margin*/
+    padding: 0;             /*removes the deafult browser padding */
+    font-family: system-ui, sans-serif;    /*changes the font, style using a more clean and modern system font*/
+
+    /* This creates a different background (multicolor gradient background)*/
+
     background: linear-gradient(135deg, #ffe6f0, #e8f0ff, #fffce6);
-    background-size: 400% 400%;
-    animation: bgMove 14s ease infinite;
+    background-size: 400% 400%; /* makes the gradient larger for the animation effect */
+    animation: bgMove 14s ease infinite;  /* background is now animated slowly */
 }
+/*moves the gradient horizontally in a back and forth motion */
 
 @keyframes bgMove {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
-
+/*centers the main content and also limits the width for better readability */
 /* Container */
 .container {
     max-width: 850px;
@@ -21,7 +25,7 @@ body {
     padding: 0 16px;
 }
 
-/* Main card */
+/* Main card  */
 .card {
     background: #ffffffcc;
     border-radius: 22px;
@@ -32,11 +36,13 @@ body {
     animation: fadeIn 1s ease-out;
 }
 
+/* simple fade in animation for the card */ 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
+/*there is a gradient colored text effect for the title text */
 /* Title */
 .title {
     font-size: 2.3rem;
@@ -48,14 +54,14 @@ body {
     margin-bottom: 6px;
 }
 
-/* Subtitle */
+/* Subtitle: there is a smaller explanation text under the  title */
 .subtitle {
     text-align: center;
     color: #6b6b6b;
     margin-bottom: 10px;
 }
 
-/* Tag */
+/* Tag : the label that will be included under the subtitles*/
 .tag {
     text-align: center;
     font-size: 0.85rem;
@@ -67,7 +73,7 @@ body {
     color: #ff6f91;
 }
 
-/* Section header */
+/* Section header : Labeling of the section based on its steps, like "Step 1"*/
 .section {
     margin-top: 18px;
     margin-bottom: 6px;
@@ -77,7 +83,7 @@ body {
     letter-spacing: 1px;
 }
 
-/* Form elements */
+/* Form elements and includes the inputs*/
 label {
     font-weight: 600;
     font-size: 0.9rem;
@@ -94,18 +100,22 @@ input {
     transition: 0.2s;
 }
 
+/*Highlights the inputs that the user will cause once clicking inside */
+
 input:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(255,111,145,0.35);
     border-color: #ff6f91;
 }
 
-/* Buttons */
+/* Buttons : The tow that holds the button sides */
 .btn-row {
     margin-top: 18px;
     display: flex;
     gap: 12px;
 }
+
+/*The main action button*/
 
 .btn-main {
     background: linear-gradient(135deg, #ff6f91, #ff9671);
@@ -122,6 +132,8 @@ input:focus {
     transform: scale(1.06);
 }
 
+/*This is the secondary button style */
+
 .btn-alt {
     background: white;
     color: #ff6f91;
@@ -137,7 +149,7 @@ input:focus {
     transform: scale(1.06);
 }
 
-/* Story box */
+/* Story box: This is the box where the generated story can be seen */
 .story-box {
     background: #fff7fb;
     padding: 16px;
@@ -147,6 +159,7 @@ input:focus {
     line-height: 1.5;
     animation: pop 0.7s ease-out;
 }
+/* animation pops for the story box */
 
 @keyframes pop {
     from { opacity: 0; transform: scale(0.93); }
@@ -167,6 +180,8 @@ footer {
     font-size: 1.7rem;
     animation: float 3s ease-in-out infinite;
 }
+
+/* the floating animation for the emojis */
 
 @keyframes float {
     0% { transform: translateY(0); }

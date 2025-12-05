@@ -3,15 +3,18 @@ from story_inputs import create_story_for_user, story_with_golden_word
 
 app = Flask(__name__)
 
+#Welcome page route
+
 @app.route("/")
 def welcome():
     return render_template("welcome.html")
 
+# User fills the form to start the story 
 @app.route("/start", methods=["GET"])
 def start():
     return render_template("index.html")
 
-
+# Receives form data and triggers the story generation
 @app.route("/story", methods=["POST"])
 def story():
     # Get form data
@@ -26,10 +29,12 @@ def story():
         "golden_word": request.form.get("golden_word", "").strip(),
         "story_option": request.form.get("story_option", "funny"),
         }
+    #Generates the story based on the user input
 
     story_text = story_with_golden_word(user_input)
     return render_template("story.html", story=story_text)
 
+#Run the Flask app
 if __name__ == "__main__":
     app.run(debug=True)
 

@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!--Allow the layout to scale properly -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Story Magic ✨</title>
 
     <style>
+        /*Full page background style */
           body {
             margin: 0;
             padding: 0;
@@ -13,7 +15,7 @@
             background: linear-gradient(135deg, #cfe9ff, #e0f4ff);
             animation: bgMove 10s infinite alternate ease-in-out;
         }
-
+/*Aninmation that moves the background from one side to the other (left to right) */
         @keyframes bgMove {
             0% { background-position: left; }
             100% { background-position: right; }
@@ -29,7 +31,7 @@
             border-radius: 18px;
             box-shadow: 0px 0px 20px rgba(255, 182, 240, 0.4);
         }
-
+/*Page title style */
         h1 {
             text-align: center;
             font-size: 2.2rem;
@@ -42,7 +44,7 @@
             color: #444;
         }
 
-        /* Form inputs */
+        /* Form + text inputs */
         label {
             font-weight: bold;
             color: #333;
@@ -91,6 +93,8 @@
             animation: blink 1.5s infinite alternate ease-in-out;
         }
 
+        /*Blinking animation for the emojis */
+
         @keyframes blink {
             0% { opacity: 1; transform: scale(1); }
             100% { opacity: 0.3; transform: scale(1.2); }
@@ -116,11 +120,13 @@
     <div class="emoji e3">✨</div>
     <div class="emoji e4">🌈</div>
 
+    <!-- Main welcome card-->
     <div class="container">
         <h1>Welcome to Story Magic ✨</h1>
         <p>Create hilarious, magical, or adventurous stories with the help of AI!</p>
         <p>Get ready to dive into creativity. 🎨✨</p>
 
+        <!--Button that takes the users to form page -->
         <form action="/start">
             <button class="start-btn">Start Creating Your Story 🌟</button>
         </form>
