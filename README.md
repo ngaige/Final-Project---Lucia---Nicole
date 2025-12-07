@@ -11,12 +11,24 @@ Our main goal was to create a webpage were users (mainly children as this is a c
 
 Example run: 
 - As shown on the first image, once you click on the link it takes you to a Welcome page, where there are blinking emojis, a fun backround and a brief description of what the game does. Then you click the button 'Start creating your Story' which will take you to the main page. 
-![App Screenshot](screenshot/main.png)
+![Welcome Page](images/welcome_page.png)
 
+- After pressing the button, you are taken to the main webpage which introduces you to all of the input options. These being: Your name, noun, place, adjective, present and past tense verb, animal, golden word and story style. The story style is a drop down feature tha include several story styles to offer more alternatives to the user, these options are: adventure, mystery, fairy tale and silly. Finally the 'golden word' option, is an option we give users to try and find a golden word. This is a specific word we selected and if the user guesses right they unlock a new portal where they are deemed the 'Ultimate Adventurer' and offer kind of a winning recognition to the game. If the user inputs a word but doesn't guess the specific word, the AI model just runs a normal story like it does usually an no error message will appear. After typing all of the inputs and selecting the story style, the user can press the 'Generate Story' button which will create the final story. 
+![Main Page](images/main_page.png)
 
+- Finally, the user is taken to the result page, where it presents a title of 'Yout Story' and the user can see the AI generated story that includes all of the inputs the user gave in the previous section. And this is how users can play our game. It is supposed to be a playful, interactive an fun experience, allowing the user to learn, experiment and have fun. This was really fun experience we had while implementing programming tools we learned throughout the semester such as Flask, API Keys and prompt engeneering. 
+![Story Page](images/result_page.png)
 
-2. 
-3. 
+2. To acess, download and install our software please follow the next steps. 
+- 1. First you need to download our project. To do this go to the Github page and clone the repository of Final-Project---Lucia---Nicole. You can also type ' git clone https://github.com/ngaige/Final-Project---Lucia---Nicole'. 
+- 2. After this you need to make sure that all the Python dependencies we used in our code are installed. Therefore, you can go to Command Prompt and type 'pip install -r requirements.txt' which will ensure that you have everything installed and everything will work when you run the project. 
+- 3. Set up your OpenAI API key. You need to create a .env file and add your OpenAI key. Set up within the file as 'OPENAI_API_KEY = ..." and place yout key there. Do not upload .env file in Github as it will leak the API key and then it won't work anymore. 
+- 4. Finally to access the webpage you just run the application. To do this runn app.py in python and in the terminal it should appear a line that says '* Running on http://127.0.0.1:5000'. Click that link and it should take you to the webpage. After this, you are able to use the Webpage and follow the process of the Example Run given in the previous question and then you can get to read your own personalized AI generated story file. If there are any troubleshooting errors, such as stories not generating, flask server errors or HTML formatting looking wrong; I would suggest looking through the API Key, make sure all the dependencies are installed and refresh the webpage server to make sure it continues to work. 
+
+3. These are the diagrams that best describe our project: 
+![First Diagram](images/architecture_system.png)
+![Second Diagram](images/data_flow_diagram.png)
+![Third Diagram](images/web_works_diagram.png)
 
 4. Project Schedule: We had approximately 5 weeks to complete this project. Ever since we are two members working on it, at the very beginning before starting our work, we decided to divide tasks and create a strict timeline. Firstly, on the first week, we had several meetings to brainstorm ideas of the topic of our project and the purpose. We would write all ideas down on a document that we created and shared. Aftwerwards, we made sure to setup and prepare the environment we were going to work on, as well as share (collaborate) the project in Github in order for us to be able to access it. On week 2, as a team, we built the main Python function and tested some story generation in order to make sure that the platform was ready to be used.  Week 4 we made sure to make final design asjustent and clean up some of the Python code, as well as fix the missing imports that would not make the project run smoothly. Fianlly, in week 5, as a team, we run through the project together to ensure everything works. We needed a little bit of more time because we encountered some issues on our API and had to perfeccion the project. Nevertheless, with the extra time that we were able to have, we were able to present a successful and well done work, full of creativity.  
 
