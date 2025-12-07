@@ -5,7 +5,16 @@ Project Members:
     1. Lucia Prado 
     2. Nicole Gaige 
 
-1. 
+1. The main idea or goal for our project was to create a cretive, interactive and engaging experience by creating an AI style Mad libs story. This was a game we both used to play when we were little with our friends, however, the original game relied on fixed templates which cause the stories to repeat themselves after a certain amount of tries. Therefore, we decided to do this, as the idea of including OpenAI API would allow us to expand the game further and provide new, different stories every single time based on the style the user chooses. This allows our webpage to provide a more humerous, myesterious or romantic story that changes every single time and provides a personalized story to the inputs of the user. 
+
+Our main goal was to create a webpage were users (mainly children as this is a childrens game, but also anyone that wants to participate), can type in random words they think of following the prompts, and receive instantly a unique AI story tailored to their inputs. This allows the story to be constantly evolving, compared to the previous game that used the fixed templates every single time and the only thing that changed where the inputs given by the user. This adds an element of surprise and enjoyment for the user as the can repeat the same style multiple times and get different stories so that the fun can continue!
+
+Example run: 
+- As shown on the first image, once you click on the link it takes you to a Welcome page, where there are blinking emojis, a fun backround and a brief description of what the game does. Then you click the button 'Start creating your Story' which will take you to the main page. 
+![App Screenshot](screenshot/main.png)
+
+
+
 2. 
 3. 
 
